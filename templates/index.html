@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎓 Lecture Buddy</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <div class="header">
+      <div class="logo">🎓</div>
+      <h1>Lecture Buddy</h1>
+      <p>Your AI-powered YouTube lecture assistant ✨</p>
+    </div>
+
+    <!-- Video ID Input -->
+    <div class="glass input-section">
+      <label>📺 YouTube Video ID</label>
+      <div class="input-row">
+        <input type="text" id="videoId" placeholder="e.g. UZDiGooFs54" />
+        <button id="processBtn" onclick="processVideo()">
+          <span id="processBtnText">🚀 Let's Go!</span>
+        </button>
+      </div>
+      <p id="processMsg" class="msg"></p>
+    </div>
+
+    <!-- Main Panel -->
+    <div class="glass main-section">
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab('summary', this)">📝 Summary</button>
+        <button class="tab" onclick="switchTab('quiz', this)">❓ Quiz</button>
+        <button class="tab" onclick="switchTab('doubt', this)">💬 Ask Away</button>
+      </div>
+
+      <!-- Summary Tab -->
+      <div id="summary" class="tab-content">
+        <button class="action-btn" onclick="getSummary()">
+          <span id="summaryBtnText">✨ Generate Summary</span>
+        </button>
+        <div id="summaryOutput" class="output-box">
+          <span class="placeholder">🌟 Process a video and hit generate!</span>
+        </div>
+      </div>
+
+      <!-- Quiz Tab -->
+      <div id="quiz" class="tab-content hidden">
+        <button class="action-btn" onclick="getQuestions()">
+          <span id="quizBtnText">🎯 Generate Quiz</span>
+        </button>
+        <div id="quizOutput" class="output-box">
+          <span class="placeholder">🧠 Quiz questions will appear here!</span>
+        </div>
+      </div>
+
+      <!-- Doubt Tab -->
+      <div id="doubt" class="tab-content hidden">
+        <p class="ask-label">🤔 What didn't you understand?</p>
+        <div class="ask-row">
+          <input type="text" id="question" placeholder="e.g. What is gradient descent?" />
+          <button onclick="askQuestion()">
+            <span id="askBtnText">💡 Ask!</span>
+          </button>
+        </div>
+        <div id="doubtOutput" class="output-box">
+          <span class="placeholder">🙋 Ask anything about the lecture!</span>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="footer">Made with ❤️ & a lot of ☕</p>
+  </div>
+
+  <script src="/static/main.js"></script>
+</body>
+</html>
